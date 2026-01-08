@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author Hao
+ *s
+ * @author AngDeng
  */
 public class MainController extends HttpServlet {
 
@@ -37,14 +37,14 @@ public class MainController extends HttpServlet {
             out.println("<title>Servlet MainController</title>");            
             out.println("</head>");
             out.println("<body>");
-           String txtUserName = request.getParameter("txtUserName");
-           String txtPassWord = request.getParameter("txtPassWord");
-           if(txtUserName.equalsIgnoreCase("Hao") && txtPassWord.equals("123")){
-               out.println("Login success");
-           }
-           else {
-               out.println("Login failled! wrong Username or Password");
-           }
+            String txtUsername = request.getParameter("txtUsername");
+            String txtPassword = request.getParameter("txtPassword");
+            if(txtUsername.equalsIgnoreCase("Hao") && txtPassword.equals("123")){
+                out.println("Login Success!");
+            }
+            else{
+                out.println("Login Failled, Wrong Username or Wrong password.");
+            }
             out.println("</body>");
             out.println("</html>");
         }
