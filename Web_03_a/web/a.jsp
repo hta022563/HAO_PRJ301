@@ -14,10 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%
-            UserDTO u = (UserDTO)request.getAttribute("user");
-            %>
-            <h1>Welcome, <%=u.getFullname()%></h1>
+       
         <h1>Bang dieu khien</h1>
         Tinh nang 1 <br>
         Tinh nang 2 <br>
