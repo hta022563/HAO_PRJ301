@@ -17,7 +17,7 @@ import model.UserDTO;
 
 /**
  *
- * @author tungi
+ * @author hao
  */
 public class LoginController extends HttpServlet {
 
@@ -59,7 +59,6 @@ public class LoginController extends HttpServlet {
         } else {
             url = "welcome.jsp";
         }
-        // Chuyen trang
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
     }

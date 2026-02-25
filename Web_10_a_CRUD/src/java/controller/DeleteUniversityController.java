@@ -17,7 +17,7 @@ import model.UniversityDTO;
 
 /**
  *
- * @author tungi
+ * @author hao
  */
 public class DeleteUniversityController extends HttpServlet {
 
@@ -43,10 +43,8 @@ public class DeleteUniversityController extends HttpServlet {
         if (id == null) {
             id = "";
         }
-
         System.out.println(keywords);
         UniversityDAO udao = new UniversityDAO();
-        // Xoa
         if (!id.isEmpty()) {
             boolean check = udao.softDelete(id);
             if(check)
@@ -54,8 +52,6 @@ public class DeleteUniversityController extends HttpServlet {
             else
                 request.setAttribute("msg", "Error, can not delete: "+id);
         }
-
-        // Tim kiem
         ArrayList<UniversityDTO> list = new ArrayList<>();
         if (keywords.trim().length() > 0) {
             list = udao.filterByName(keywords);

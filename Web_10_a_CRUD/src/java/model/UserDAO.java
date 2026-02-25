@@ -13,7 +13,7 @@ import utils.DbUtils;
 
 /**
  *
- * @author tungi
+ * @author hao
  */
 public class UserDAO {
 
@@ -29,7 +29,7 @@ public class UserDAO {
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, username);
             ResultSet rs = pst.executeQuery();
-            
+
             UserDTO user = null;
             while (rs.next()) {
                 String userID = rs.getString("userID");
@@ -39,9 +39,8 @@ public class UserDAO {
                 boolean status = rs.getBoolean("status");
                 user = new UserDTO(userID, fullName, password, roleID, status);
             }
-            
             System.out.println(user);
-            
+
             return user;
         } catch (Exception e) {
             return null;

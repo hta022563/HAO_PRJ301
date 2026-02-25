@@ -16,7 +16,7 @@ import model.UniversityDTO;
 
 /**
  *
- * @author tungi
+ * @author hao
  */
 public class AddUniversityController extends HttpServlet {
 
@@ -34,7 +34,6 @@ public class AddUniversityController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-
         String error = "";
         String msg = "";
         String url = "";
@@ -51,7 +50,6 @@ public class AddUniversityController extends HttpServlet {
             String s_totalStudents = request.getParameter("totalStudents");
             String s_totalFaculties = request.getParameter("totalFaculties");
             String s_isDraft = request.getParameter("isDraft");
-
             id = id.trim();
             if (id.isEmpty()) {
                 error += ("Chua nhap Id <br/>");
@@ -60,16 +58,11 @@ public class AddUniversityController extends HttpServlet {
             if (name.isEmpty()) {
                 error += ("Chua nhap Name <br/>");
             }
-            /*
-            Bat them loi khac
-            */
-            
             UniversityDAO udao = new UniversityDAO();
             UniversityDTO u = udao.searchByID(id);
             if (u != null) {
                 error += ("ID da ton tai, vui long nhap ID khac!<br/>");
             }
-
             int foundedYear = 0;
             try {
                 foundedYear = Integer.parseInt(s_foundedYear);
@@ -79,7 +72,6 @@ public class AddUniversityController extends HttpServlet {
             } catch (Exception e) {
                 error += ("Nam thanh lap phai la so nguyen!<br/>");
             }
-
             int totalStudents = 0;
             try {
                 totalStudents = Integer.parseInt(s_totalStudents);
@@ -89,7 +81,6 @@ public class AddUniversityController extends HttpServlet {
             } catch (Exception e) {
                 error += ("Tong so sinh vien phai la so nguyen!<br/>");
             }
-
             int totalFaculties = 0;
             try {
                 totalFaculties = Integer.parseInt(s_totalFaculties);
@@ -104,7 +95,6 @@ public class AddUniversityController extends HttpServlet {
             
             u = new UniversityDTO(id, name, shortName, description, foundedYear, address, city, region, type, totalStudents, totalFaculties, isDraft);
             if(error.isEmpty()){
-                // Khong co loi
                 if(udao.add(u)){
                     msg="Da them University thanh cong!";
                 }else{
@@ -117,7 +107,6 @@ public class AddUniversityController extends HttpServlet {
             }
             request.setAttribute("error", error);
             url = "university-form.jsp";
-            
         } catch (Exception e) {
             e.printStackTrace();
         }

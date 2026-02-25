@@ -17,7 +17,7 @@ import model.UserDTO;
 
 /**
  *
- * @author tungi
+ * @author hao
  */
 public class MainController extends HttpServlet {
 
@@ -34,10 +34,8 @@ public class MainController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        
         String action = request.getParameter("action");
         String url = "login";
-         
         if(action.equals("login")){
             url = "LoginController";
         }else if(action.equals("logout")){
@@ -51,8 +49,6 @@ public class MainController extends HttpServlet {
         }else if(action.equals("updateUniversity") ||action.equals("saveUpdateUniversity")  ){
             url = "UpdateUniversityController";
         }
-        
-        // Chuyen trang
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
         

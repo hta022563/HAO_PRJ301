@@ -6,9 +6,10 @@ package model;
 
 /**
  *
- * @author tungi
+ * @author hao
  */
 public class UniversityDTO {
+
     private String id, name, shortName, description;
     private int foundedYear;
     private String address, city, region, type;
@@ -128,5 +129,5 @@ public class UniversityDTO {
     public void setIsDraft(boolean isDraft) {
         this.isDraft = isDraft;
     }
-   
+
 }

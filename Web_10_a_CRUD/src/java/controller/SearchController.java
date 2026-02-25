@@ -17,7 +17,7 @@ import model.UniversityDTO;
 
 /**
  *
- * @author tungi
+ * @author hao
  */
 public class SearchController extends HttpServlet {
 
@@ -39,7 +39,6 @@ public class SearchController extends HttpServlet {
         if (keywords == null) {
             keywords = "";
         }
-
         System.out.println(keywords);
         UniversityDAO udao = new UniversityDAO();
         ArrayList<UniversityDTO> list = new ArrayList<>();

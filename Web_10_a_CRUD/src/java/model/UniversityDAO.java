@@ -12,7 +12,7 @@ import utils.DbUtils;
 
 /**
  *
- * @author tungi
+ * @author hao
  */
 public class UniversityDAO {
 
@@ -71,7 +71,6 @@ public class UniversityDAO {
                 int totalStudents = rs.getInt("totalStudents");
                 int totalFaculties = rs.getInt("totalFaculties");
                 boolean isDraft = rs.getBoolean("isDraft");
-
                 UniversityDTO u = new UniversityDTO(id, name, shortName, description, foundedYear, address, city, region, type, totalStudents, totalFaculties, isDraft);
                 result.add(u);
             }

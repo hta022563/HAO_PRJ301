@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author tungi
+ * @author hao
  */
 public class LogoutController extends HttpServlet {
 
@@ -33,7 +33,6 @@ public class LogoutController extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         if(session.getAttribute("user")!=null){
-            // huy bo toan bo noi dung session
             session.invalidate();
         }
         String url = "login.jsp";
